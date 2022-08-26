@@ -18,10 +18,11 @@ const View = (() => {
       let tmp = "";
       arr.forEach((course) => {
         tmp += `
-          <li>
+          <li class="courseItem" id="${course.courseId}">
               <span>${course.courseName}</span>
               <span>Course type: ${course.required ? 'Cumpolsery' : 'Elective' }</span>
               <span>Course credit: ${course.credit}</span>
+
           </li>
           `;
       });
@@ -75,7 +76,45 @@ const Model = ((api, view) => {
   
   const Controller = ((model, view) => {
     const state = new model.State();
-  
+    const selectedCourses =[];
+    let totalcredit = 0;
+
+    const selectCourse =() =>{
+
+        const ulcontainer = document.querySelector(view.domstr.course);
+          ulcontainer.addEventListener("click", (event) => {
+            console.log(event.target.className)
+            if (event.target.className === "courseItem" && !event.target.classList.contains('selected')) {
+            //   console.log(state, event.target.id)
+              let course = state.courseList.find(elem => elem.courseId == event.target.id);
+              console.log(course)
+              if((totalcredit+course.credit) > 18){
+                alert("course credit is over 18");
+              } else {
+                selectedCourses.push(course);
+                totalcredit+= course.credit;
+                event.target.classList.add('selected');
+              }
+            }
+            console.log(selectedCourses, totalcredit);
+        })
+
+    }
+
+    const removeCourse = () =>{
+        const ulcontainer = document.querySelector(view.domstr.course);
+        ulcontainer.addEventListener("click", (event) => {
+            if (event.target.classList.contains('selected') && event.target.classList.contains('courseItem')) {
+           
+              let course = state.courseList.find(elem => elem.courseId == event.target.id);
+                selectedCourses.filter(elem => elem.courseId != course.courseId);
+                event.target.classList.remove('selected');
+            
+            }
+            console.log('removing',selectedCourses, totalcredit);
+        })
+    }
+    
     // const deleteTodo = () => {
     //   const ulcontainer = document.querySelector(view.domstr.courseList);
     //   ulcontainer.addEventListener("click", (event) => {
@@ -112,7 +151,8 @@ const Model = ((api, view) => {
   
     const bootstrap = () => {
       init();
-     
+      removeCourse();
+      selectCourse();
 
     };
     return {
