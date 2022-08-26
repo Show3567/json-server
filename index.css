@@ -19,3 +19,16 @@ body {
   .boxcontainer{
     display: flex;
   }
+
+  .selected {
+    display: flex;
+    justify-content: flex-end;
+    background-color: blue;
+  }
+
+  li{
+    z-index: 5
+  }
+  span{
+    z-index: 0;
+  }
