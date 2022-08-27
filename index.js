@@ -83,13 +83,6 @@ const Controller = ((model, view) => {
   let selectedCourses = [];
   let totalcredit = 0;
 
-  const total = () =>{
-    const total = document.querySelector(view.domstr.totalcredit)
-    console.log(total);
-    total.addEventListener("click", (event)=>{
-        document.getElementById("total").innerHTML = totalcredit;
-    })
-  }
 
   const selectBtn = () => {
     const button = document.querySelector(view.domstr.button);
