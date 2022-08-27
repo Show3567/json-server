@@ -19,14 +19,14 @@ const View = (() => {
 
     arr.forEach((course) => {
       tmp += `
-          <li class="courseItem" id="${course.courseId}">
+            <li class="courseItem" id="${course.courseId}">
               <span class="name">${course.courseName}</span>
               <span>Course type: ${
-                course.required ? "Cumpolsery" : "Elective"
-              }</span>
+                    course.required ? "Cumpolsery" : "Elective"
+                    }</span>
               <span>Course credit: ${course.credit}</span>
-
-          </li>
+            </li>
+        
           `;
     });
 

@@ -3,51 +3,50 @@ index.css
 */
 
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     
   }
+
 header {
-  
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bolder;
+  margin-top: 5rem;
+  height: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
     
 }
-main.content{
-  margin: 2rem 
-}
-
-ul li{
-  display: flex;
+#container{
   text-decoration: none;
-  border-style:solid ;
-  
 }
-  /* .content .boxcontainer{
+.content{
+  margin: 2rem ;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+
+.courseItem{
+  justify-content: space-around;
+
+}
+  .selected{
+    background-color: aquamarine;
     
-    display: flex;
-    flex-direction: column;
-
   }
-
-  .box1 {
-    
-    flex-direction: row;
-  }
-
-  .box2 {
-    flex-direction: row;
-  } */
-  #items{
-    display: inline-block;
-  }
+ #items{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-around;
+ }
   #total{
-   
     font-size: large;
+    font-weight: bolder;
   }
   #sbtn{
    /* margin: 2rem; */
