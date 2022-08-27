@@ -5,7 +5,8 @@ const View = (() => {
   const domstr = {
     course: "#availbeleCourse",
     button: "#sbtn",
-    course2: "#selectedCourse"
+    course2: "#selectedCourse",
+    totalcredit: "#total"
   };
 
   const render = (ele, tmp) => {
@@ -82,6 +83,14 @@ const Controller = ((model, view) => {
   let selectedCourses = [];
   let totalcredit = 0;
 
+  const total = () =>{
+    const total = document.querySelector(view.domstr.totalcredit)
+    console.log(total);
+    total.addEventListener("click", (event)=>{
+        document.getElementById("total").innerHTML = totalcredit;
+    })
+  }
+
   const selectBtn = () => {
     const button = document.querySelector(view.domstr.button);
     button.addEventListener("click", (event) => {
@@ -91,7 +100,7 @@ const Controller = ((model, view) => {
       for (let i = 0;i< lis.length; i++) { 
         let name = lis[i].getElementsByClassName('name')[0].innerHTML;
         let t = lis[i].innerHtml;
-        console.log("name",name);
+        // console.log("name",name);
         selectedCourses.forEach((selCourse)=>{
             console.log("selCourse",selCourse.courseName)
              if(selCourse.courseName===name)
@@ -125,7 +134,7 @@ const Controller = ((model, view) => {
           totalcredit -= course.credit;
           event.target.classList.remove("selected");
         } else {
-          console.log(course);
+        //   console.log(course);
           if (totalcredit + course.credit > 18) {
             alert("course credit is over 18");
           } else {
@@ -137,7 +146,7 @@ const Controller = ((model, view) => {
           }
         }
 
-        console.log(selectedCourses, totalcredit);
+        // console.log(selectedCourses, totalcredit);
       }
     });
   };
@@ -153,6 +162,7 @@ const Controller = ((model, view) => {
     init();
     selectCourse();
     selectBtn();
+   
   };
   return {
     bootstrap,

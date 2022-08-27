@@ -2,12 +2,7 @@
 index.css
 */
 
-/* html,
-body {
-  width: 300px;
-  height: 200px;
-  
-} */
+
 
 * {
     margin: 0;
@@ -16,20 +11,47 @@ body {
     
   }
 header {
-   
+  
     text-align: center;
-    font-size: larger;
+    font-size: 2rem;
+    font-weight: bolder;
     
 }
-  .boxcontainer{
-    display: flex;
-  }
+main.content{
+  margin: 2rem 
+}
 
+ul li{
+  display: flex;
+  text-decoration: none;
+  border-style:solid ;
   
+}
+  /* .content .boxcontainer{
+    
+    display: flex;
+    flex-direction: column;
 
-  li{
-    z-index: 5
   }
-  span{
-    z-index: 0;
+
+  .box1 {
+    
+    flex-direction: row;
+  }
+
+  .box2 {
+    flex-direction: row;
+  } */
+  #items{
+    display: inline-block;
+  }
+  #total{
+   
+    font-size: large;
+  }
+  #sbtn{
+   /* margin: 2rem; */
+   padding: auto;
+   align-items: center;
+   width: 5rem;
   }
