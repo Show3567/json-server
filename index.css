@@ -21,7 +21,6 @@ index.css
 }
 
 .content{
-
   display: flex;
   justify-content:space-around;
   justify-content: center;
@@ -52,6 +51,7 @@ header:hover{
   border-color: rgb(77, 75, 75);
 }
 .courseItem{
+  text-align: center;
   border: solid;
   border-width: .1em ;
   border-color: rgb(209, 212, 215);

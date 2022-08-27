@@ -93,7 +93,7 @@ const Controller = ((model, view) => {
       for (let i = 0;i< lis.length; i++) { 
         let name = lis[i].getElementsByClassName('name')[0].innerHTML;
         let t = lis[i].innerHtml;
-        // console.log("name",name);
+        console.log("name",name);
         selectedCourses.forEach((selCourse)=>{
             console.log("selCourse",selCourse.courseName)
              if(selCourse.courseName===name)
@@ -120,16 +120,23 @@ const Controller = ((model, view) => {
 
         if (classList.contains("selected")) {
           selectedCourses = selectedCourses.filter((elem) => {
-            console.log(elem.courseId, course.courseId);
+            // console.log(elem.courseId, course.courseId);
             return elem.courseId != course.courseId;
           });
-          console.log(selectedCourses);
+          // console.log(selectedCourses);
           totalcredit -= course.credit;
           event.target.classList.remove("selected");
         } else {
         //   console.log(course);
-          if (totalcredit + course.credit > 18) {
-            alert("course credit is over 18");
+          // if(totalcredit + course.credit === 12){
+          //     alert(`
+          //     You have chosen ${totalcredit} credits for semester.
+          //     You cannot change once you submit.
+          //     Do you want to confirm?`);
+          // }
+          // else 
+          if(totalcredit + course.credit > 18) {
+            alert("You cannot choose more than 18 credits in one semester!");
           } else {
             selectedCourses.push(course);
             totalcredit += course.credit;
@@ -139,7 +146,6 @@ const Controller = ((model, view) => {
           }
         }
 
-        // console.log(selectedCourses, totalcredit);
       }
     });
   };
