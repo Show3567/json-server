@@ -2,12 +2,12 @@
 index.css
 */
 
-html,
+/* html,
 body {
   width: 300px;
   height: 200px;
-  /* overflow: hidden; */
-}
+  
+} */
 
 * {
     margin: 0;
@@ -15,16 +15,17 @@ body {
     box-sizing: border-box;
     
   }
-
+header {
+   
+    text-align: center;
+    font-size: larger;
+    
+}
   .boxcontainer{
     display: flex;
   }
 
-  .selected {
-    display: flex;
-    justify-content: flex-end;
-    background-color: blue;
-  }
+  
 
   li{
     z-index: 5
