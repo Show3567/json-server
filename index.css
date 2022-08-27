@@ -25,12 +25,16 @@ index.css
   justify-content:space-around;
   justify-content: center;
 }
-
-header:hover{
-	display: flex;
-	justify-content: center;
-	font-weight: bold;
+header{
+  display: flex;
+  justify-content: center;
+  font-weight:bold ;
   border-bottom: solid;
+  border-width:.1em ;
+  border-color: rgb(77, 75, 75);
+ 
+}
+header:hover{
   background-color:rgb(149, 227, 199);
 }
 
