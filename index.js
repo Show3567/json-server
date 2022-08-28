@@ -6,12 +6,12 @@ const View = (() => {
     course: "#availbeleCourse",
     button: "#sbtn",
     course2: "#selectedCourse",
-    totalcredit: "#total"
+    // totalcredit: "#total"
   };
 
   const render = (ele, tmp) => {
     ele.innerHTML = tmp;
-    // console.log(tmp);
+    console.log(tmp);
   };
 
   const createTmp = (arr) => {
@@ -26,7 +26,7 @@ const View = (() => {
                     }</span>
               <span>Course credit: ${course.credit}</span>
             </li>
-        
+            
           `;
     });
 
@@ -64,8 +64,6 @@ const Model = ((api, view) => {
       const ulcontainer = document.querySelector(view.domstr.course);
       const tmp = view.createTmp(this.#courseList);
       view.render(ulcontainer, tmp);
-
-
     
     }
   }
@@ -114,6 +112,7 @@ const Controller = ((model, view) => {
     ulcontainer.addEventListener("click", (event) => {
       if (event.target.classList.contains("courseItem")) {
         let classList = event.target.classList;
+        console.log(classList)
         let course = state.courseList.find(
           (elem) => elem.courseId == event.target.id
         );
@@ -135,7 +134,7 @@ const Controller = ((model, view) => {
           //     Do you want to confirm?`);
           // }
           // else 
-          if(totalcredit + course.credit > 18) {
+          if(totalcredit + course.credit >18) {
             alert("You cannot choose more than 18 credits in one semester!");
           } else {
             selectedCourses.push(course);
@@ -145,7 +144,9 @@ const Controller = ((model, view) => {
             
           }
         }
-
+        const ulcontainer = document.querySelector(view.domstr.course2);
+        const tmp = view.createTmp(selectedCourses);
+        view.render(ulcontainer, tmp);
       }
     });
   };

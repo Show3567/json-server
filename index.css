@@ -86,10 +86,15 @@ header:hover{
     font-weight: bolder;
   }
   #sbtn{
-   /* margin: 2rem; */
+   margin-left: 2rem;
    padding: auto;
    align-items: center;
    width: 5rem;
   }
 
-  
+  .creditLabel{
+    font-weight: bolder;
+    margin-right: .5rem;
+    text-align: center;
+    padding: .1rem;
+  }
