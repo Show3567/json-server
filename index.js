@@ -106,6 +106,7 @@ const Controller = ((model, view) => {
         let classList = event.target.classList;
         let course = state.courseList.find(
           (elem) => elem.courseId == event.target.id
+          
         );
 
         if (classList.contains("selected")) {
