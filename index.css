@@ -1,0 +1,14 @@
+.course-list{
+    height: 300px;
+    width: 200px;
+    overflow-x: auto;
+    margin-right: 50px;
+}
+
+.all-courses{
+    display: flex;
+}
+
+.class-select-box{
+    padding: 5px;
+}

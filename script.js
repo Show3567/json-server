@@ -40,17 +40,21 @@ const Api = (() => {
     // innerHTML
     const createTmp = (arr) => {
       let tmp = '';
-      arr.forEach((todo) => {
+      arr.forEach((course) => {
         tmp += `
-        <li>
-            <span>${todo.courseId}-${todo.courseName}</span>
+        <li id=${course.courseId} class="class-select-box">
+            <span>${course.courseName}</span>
+            ${course.required?"<div>Compulsory</div>":"<div>Elective</div>"}
             
         </li>
         `;
       });
+
+      
   
       return tmp;
     };
+    
   
     const render = (ele, tmp) => {
       ele.innerHTML = tmp;
@@ -76,6 +80,7 @@ const Api = (() => {
   
     class State {
       #todoList = [];
+      
   
       get todoList() {
         return this.#todoList;
@@ -89,6 +94,9 @@ const Api = (() => {
   
         view.render(todocontainer, tmp);
       }
+
+     
+
     }
   
     return {
@@ -102,22 +110,38 @@ const Api = (() => {
   
   const controller = ((model, view) => {
     const state = new model.State();
+
+    const myList =  document.querySelectorAll(".class-select-box")
+ 
+    myList.forEach(el=>{
+        el.addEventListener('click', function handleClick(event) {
+            console.log('box clicked', event);
+        
+            el.setAttribute('style', 'background-color: yellow;');
+          });
+        });
   
     const init = () => {
       model.getTodos().then((todos) => {
         state.todoList = todos;
       });
     };
+
+
+    
+
+
   
    
   
     const bootstrap = () => {
       init();
-      deleteTodo();
-      addTodo();
+     
     };
   
     return { bootstrap };
   })(Model, View);
   controller.bootstrap();
+  
+
   
