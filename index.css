@@ -19,3 +19,18 @@
 .class-select-box:nth-child(even){
     background-color: rgb(221, 239, 221);
 }
+
+.selected-courses{
+  
+    border: 1px solid black;
+    height: 300px;
+    width: 200px;
+    overflow-x: auto;
+}
+
+.selected-course-title{
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
