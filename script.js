@@ -38,17 +38,20 @@ const Api = (() => {
       inputbox: '.todolist__input',
     };
     // innerHTML
+    
     const createTmp = (arr) => {
       let tmp = '';
       arr.forEach((course) => {
         tmp += `
-        <li id=${course.courseId} class="class-select-box">
+        <li id=${course.courseId} } class="class-select-box">
             <span>${course.courseName}</span>
             ${course.required?"<div>Compulsory</div>":"<div>Elective</div>"}
             
         </li>
         `;
       });
+
+      
 
       
   
@@ -58,6 +61,20 @@ const Api = (() => {
   
     const render = (ele, tmp) => {
       ele.innerHTML = tmp;
+
+      const myList =  document.querySelectorAll(".class-select-box")
+    
+   
+      myList.forEach(el=>{
+          el.addEventListener('click', function handleClick(event) {
+              console.log('box clicked', event);
+
+
+          
+              el.style.backgroundColor = "#ADD8E6";
+            });
+          });
+
     };
   
     return {
@@ -94,10 +111,13 @@ const Api = (() => {
   
         view.render(todocontainer, tmp);
       }
+      
 
      
 
     }
+
+    
   
     return {
       getTodos,
@@ -111,15 +131,11 @@ const Api = (() => {
   const controller = ((model, view) => {
     const state = new model.State();
 
-    const myList =  document.querySelectorAll(".class-select-box")
- 
-    myList.forEach(el=>{
-        el.addEventListener('click', function handleClick(event) {
-            console.log('box clicked', event);
-        
-            el.setAttribute('style', 'background-color: yellow;');
-          });
-        });
+    
+       
+   
+
+   
   
     const init = () => {
       model.getTodos().then((todos) => {
@@ -144,4 +160,3 @@ const Api = (() => {
   controller.bootstrap();
   
 
-  

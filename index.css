@@ -11,4 +11,11 @@
 
 .class-select-box{
     padding: 5px;
+
+    border: 1px solid black;
+
+}
+
+.class-select-box:nth-child(even){
+    background-color: rgb(221, 239, 221);
 }
