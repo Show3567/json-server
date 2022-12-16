@@ -61,19 +61,42 @@ const Api = (() => {
   
     const render = (ele, tmp) => {
       ele.innerHTML = tmp;
+      let counter = 0;
 
       const myList =  document.querySelectorAll(".class-select-box")
+      const counternumber = document.getElementById("counter-number")
+      counternumber.innerHTML = counter
     
    
       myList.forEach(el=>{
           el.addEventListener('click', function handleClick(event) {
-              console.log('box clicked', event);
+              console.log(el.style.backgroundColor === "#ADD8E6")
+              if(el.style.backgroundColor === "rgb(173, 216, 230)" && el.id % 2 ===0){
+                el.style.backgroundColor = "rgb(221, 239, 221)"
+                if(counter != 0) counter--
+                counternumber.innerHTML = counter
+                
+              }
+              else if(el.style.backgroundColor === "rgb(173, 216, 230)" && el.id % 2 ===1){
+                el.style.backgroundColor = "rgb(255, 255, 255)"
+                if(counter != 0) counter--
+                counternumber.innerHTML = counter
+                
+              }
+              else{
+                
+                el.style.backgroundColor = "#ADD8E6"
+                counter++
+                counternumber.innerHTML = counter
+                
+              }
+            });
 
+            
+          
 
           
-              el.style.backgroundColor = "#ADD8E6";
-            });
-          });
+        });
 
     };
   
@@ -130,6 +153,8 @@ const Api = (() => {
   
   const controller = ((model, view) => {
     const state = new model.State();
+
+    
 
     
        
